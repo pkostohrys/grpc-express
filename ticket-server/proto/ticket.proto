@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package ticket;
+
+service TicketService {
+      rpc create(CreateTicketRequest) returns (CreateTicketResponse){}
+};
+
+message CreateTicketRequest {
+   string title = 1;
+};
+
+message CreateTicketResponse {
+    message Ticket {
+       string title = 1;
+    };
+    repeated Ticket tickets = 1;
+}
+
